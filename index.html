@@ -1647,5 +1647,1109 @@ body {
   <div class="slide-num">06 / 14</div>
 </div>
 
+<!-- ══════════════════════════════════
+  SLIDE 07 — Metrics Matrix 개념
+══════════════════════════════════ -->
+<style>
+/* ── S07 ── */
+#s07 {
+  align-items: stretch;
+}
+#s07 .left {
+  width: 680px;
+  padding: 100px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+}
+#s07 h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 88px;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+#s07 h2 em { color: var(--accent3); font-style: normal; }
+#s07 .method-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+#s07 .def-text {
+  font-size: 17px;
+  color: #ccc;
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+#s07 .def-text strong { color: var(--accent3); font-weight: 700; }
+#s07 .when-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent3);
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+#s07 .wb-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent3);
+  margin-bottom: 12px;
+}
+#s07 .wb-text {
+  font-size: 14px;
+  color: #bbb;
+  line-height: 1.8;
+}
+#s07 .wb-text strong { color: var(--text); font-weight: 700; }
+#s07 .tags-row { display: flex; gap: 8px; }
+
+#s07 .right {
+  flex: 1;
+  padding: 80px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+#s07 .col-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+#s07 .sev-guide {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+#s07 .sg-head {
+  background: #111;
+  padding: 12px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+#s07 .sg-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+#s07 .sg-row:last-child { border-bottom: none; }
+#s07 .sg-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  padding: 4px 14px;
+  border-radius: 2px;
+  width: 44px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.sev-hi { background: #ff404020; color: #ff6060; border: 1px solid #ff404040; }
+.sev-md { background: #FF5C0020; color: var(--accent2); border: 1px solid #FF5C0040; }
+.sev-lo { background: #C8FF0020; color: var(--accent); border: 1px solid #C8FF0040; }
+#s07 .sg-cond { font-size: 13px; color: #bbb; flex: 1; }
+#s07 .sg-action { font-size: 12px; color: var(--muted); width: 220px; text-align: right; font-family: 'DM Mono', monospace; }
+
+#s07 .columns-preview {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+#s07 .cp-head {
+  background: #111;
+  padding: 12px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+#s07 .cp-cols {
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+  padding: 1px;
+}
+#s07 .cp-col {
+  flex: 1;
+  background: var(--surface);
+  padding: 14px 16px;
+  text-align: center;
+}
+#s07 .cp-col .cc-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--accent3);
+  margin-bottom: 6px;
+}
+#s07 .cp-col .cc-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+#s07 .tip-box {
+  background: #001a1a;
+  border: 1px solid #003a3a;
+  border-left: 3px solid var(--accent3);
+  padding: 20px 24px;
+}
+#s07 .tb-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent3);
+  margin-bottom: 8px;
+}
+#s07 .tb-text { font-size: 14px; color: #ccc; line-height: 1.7; }
+#s07 .tb-text strong { color: var(--accent3); }
+
+/* ── S08 Metrics Matrix 예시 ── */
+#s08 {
+  flex-direction: column;
+}
+#s08 .top-bar {
+  height: 140px;
+  padding: 0 100px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-shrink: 0;
+  background: #00080d;
+}
+#s08 .top-bar h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 60px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  line-height: 1;
+}
+#s08 .top-bar h2 em { color: var(--accent3); font-style: normal; }
+#s08 .top-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent3);
+  border: 1px solid var(--accent3);
+  padding: 6px 16px;
+  white-space: nowrap;
+}
+#s08 .top-desc { font-size: 15px; color: #888; line-height: 1.7; }
+
+#s08 .body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 100px;
+  gap: 16px;
+  justify-content: center;
+}
+#s08 table.mtable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+#s08 table.mtable th {
+  background: #111;
+  padding: 14px 20px;
+  text-align: left;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+#s08 table.mtable td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  color: #ccc;
+  vertical-align: middle;
+}
+#s08 table.mtable tr:last-child td { border-bottom: none; }
+#s08 .row-hi td { background: #150808; }
+#s08 .row-md td { background: #120d00; }
+#s08 .row-lo td { background: #0d0d0d; }
+#s08 .val-bad { color: #ff6060; font-weight: 700; }
+#s08 .val-warn { color: var(--accent2); font-weight: 700; }
+#s08 .val-good { color: #47cc88; }
+#s08 .val-note { color: #cc9900; }
+
+#s08 .bottom-row {
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+}
+#s08 .br-cell {
+  flex: 1;
+  background: var(--surface);
+  padding: 20px 28px;
+}
+#s08 .br-cell .brc-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+#s08 .br-cell p { font-size: 14px; color: #ccc; line-height: 1.7; }
+#s08 .br-cell strong { color: var(--text); font-weight: 700; }
+#s08 .br-cell em { color: var(--accent3); font-style: normal; }
+
+/* ── S09 Behavior Mapping 개념 ── */
+#s09 {
+  align-items: stretch;
+}
+#s09 .left {
+  width: 680px;
+  padding: 100px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+}
+#s09 h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 88px;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+#s09 h2 em { color: var(--accent); font-style: normal; }
+#s09 .method-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+#s09 .def-text {
+  font-size: 17px;
+  color: #ccc;
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+#s09 .def-text strong { color: var(--accent); font-weight: 700; }
+#s09 .when-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+#s09 .wb-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+#s09 .wb-text { font-size: 14px; color: #bbb; line-height: 1.8; }
+#s09 .wb-text strong { color: var(--text); font-weight: 700; }
+#s09 .tags-row { display: flex; gap: 8px; }
+
+#s09 .right {
+  flex: 1;
+  padding: 80px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+#s09 .read-guide {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+#s09 .rg-head {
+  background: #111;
+  padding: 12px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+#s09 .rg-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+#s09 .rg-row:last-child { border-bottom: none; }
+#s09 .rg-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  width: 32px;
+  text-align: center;
+  margin-top: 2px;
+}
+#s09 .rg-body {}
+#s09 .rg-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+#s09 .rg-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+#s09 .principle-box {
+  background: #0d1400;
+  border: 1px solid #1e2800;
+  border-left: 3px solid var(--accent);
+  padding: 20px 24px;
+}
+#s09 .pb-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+#s09 .fact-interp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  margin-top: 4px;
+}
+#s09 .fi-box {
+  padding: 14px 18px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+#s09 .fi-fact { background: #0a180a; }
+#s09 .fi-interp { background: #1a1000; }
+#s09 .fi-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+#s09 .fi-fact .fi-label { color: #47cc88; }
+#s09 .fi-interp .fi-label { color: #cc8800; }
+#s09 .fi-fact p { color: #80cc80; }
+#s09 .fi-interp p { color: #cc9944; }
+
+#s09 .tip-box {
+  background: #0d1400;
+  border: 1px solid #1e2800;
+  border-left: 3px solid var(--accent);
+  padding: 20px 24px;
+}
+#s09 .tb-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+#s09 .tb-text { font-size: 14px; color: #ccc; line-height: 1.7; }
+#s09 .tb-text strong { color: var(--accent); }
+</style>
+
+<!-- SLIDE 07 -->
+<div class="slide" id="s07">
+  <div class="left">
+    <div class="section-tag" style="color:var(--accent3);">Method 02</div>
+    <h2>Metrics<br><em>Matrix</em></h2>
+    <div class="method-label">수치를 표로 정리해 우선순위 찾기</div>
+
+    <p class="def-text">
+      테스트에서 나온 숫자들을 <strong>한 눈에 비교할 수 있는 표로 재구성</strong>하고,
+      어떤 화면이 가장 시급한 문제인지 심각도를 매기는 방법이다.
+      숫자가 많을수록 오히려 중요한 것을 놓치기 쉽다.
+      표로 정리하는 순간, 무엇을 먼저 고쳐야 할지가 보인다.
+    </p>
+
+    <div class="when-box">
+      <div class="wb-label">이럴 때 사용해요</div>
+      <div class="wb-text">
+        Maze 같은 테스트 도구에서 <strong>여러 미션의 수치가 한꺼번에 나왔을 때</strong>.<br>
+        팀원에게 "어디가 제일 문제야?"라고 설명해야 할 때.<br>
+        개선 작업의 <strong>순서를 정해야 할 때</strong>.
+      </div>
+    </div>
+
+    <div class="tags-row">
+      <span class="mc-tag mct-qn" style="font-size:11px;padding:5px 16px;">정량 데이터</span>
+      <span class="mc-tag mct-bh" style="font-size:11px;padding:5px 16px;">행동 지향</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="col-label">// 심각도 판단 기준</div>
+    <div class="sev-guide">
+      <div class="sg-head">SEVERITY GUIDE — 이 기준으로 심각도를 매긴다</div>
+      <div class="sg-row">
+        <span class="sg-badge sev-hi">상</span>
+        <span class="sg-cond">성공률 <strong style="color:#ff6060;">60% 미만</strong> AND Misclick <strong style="color:#ff6060;">30% 초과</strong> — 대부분의 사용자가 실패하거나 헤맨다</span>
+        <span class="sg-action">즉시 개선 필요</span>
+      </div>
+      <div class="sg-row">
+        <span class="sg-badge sev-md">중</span>
+        <span class="sg-cond">성공률 <strong style="color:var(--accent2);">60~80%</strong> OR Misclick <strong style="color:var(--accent2);">15~30%</strong> — 일부 사용자가 어려움을 겪는다</span>
+        <span class="sg-action">개선 계획 수립</span>
+      </div>
+      <div class="sg-row">
+        <span class="sg-badge sev-lo">하</span>
+        <span class="sg-cond">성공률 <strong style="color:var(--accent);">80% 이상</strong> AND Misclick <strong style="color:var(--accent);">15% 미만</strong> — 대부분 무난하게 완료한다</span>
+        <span class="sg-action">모니터링 유지</span>
+      </div>
+    </div>
+
+    <div class="col-label" style="margin-top:4px;">// 표의 구성 컬럼</div>
+    <div class="columns-preview">
+      <div class="cp-head">MATRIX COLUMNS — 이 항목들로 표를 만든다</div>
+      <div class="cp-cols">
+        <div class="cp-col">
+          <div class="cc-name">미션 ID</div>
+          <div class="cc-desc">테스트한<br>미션 번호</div>
+        </div>
+        <div class="cp-col">
+          <div class="cc-name">태스크</div>
+          <div class="cc-desc">사용자에게<br>주어진 과제</div>
+        </div>
+        <div class="cp-col">
+          <div class="cc-name">성공률</div>
+          <div class="cc-desc">완료한<br>사용자 비율</div>
+        </div>
+        <div class="cp-col">
+          <div class="cc-name">Misclick</div>
+          <div class="cc-desc">잘못 클릭한<br>비율</div>
+        </div>
+        <div class="cp-col">
+          <div class="cc-name">Drop-off</div>
+          <div class="cc-desc">중간에<br>이탈한 비율</div>
+        </div>
+        <div class="cp-col">
+          <div class="cc-name">소요 시간</div>
+          <div class="cc-desc">평균<br>완료 시간</div>
+        </div>
+        <div class="cp-col">
+          <div class="cc-name">심각도</div>
+          <div class="cc-desc">상/중/하<br>우선순위</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tb-label">💡 TIP</div>
+      <div class="tb-text">
+        표를 만든 뒤 <strong>심각도 열에 색을 입히면</strong>(빨강/주황/초록) 우선순위가 한눈에 보인다.
+        Google Sheets나 Notion 표에서 조건부 서식을 활용해보자.
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">07 / 14</div>
+</div>
+
+<!-- SLIDE 08 — Metrics Matrix 예시 -->
+<div class="slide" id="s08">
+  <div class="top-bar">
+    <div class="top-badge">Method 02 · Example</div>
+    <h2>Metrics Matrix — <em>실제로 해보면</em></h2>
+    <p class="top-desc">
+      카카오뱅크 Maze 테스트 결과를 표로 재구성한 예시. Before와 After를 나란히 놓으면 개선 효과가 바로 보인다.
+    </p>
+  </div>
+
+  <div class="body">
+    <div class="col-label">// BEFORE — 기존 디자인 (n=7)</div>
+    <table class="mtable">
+      <thead>
+        <tr>
+          <th style="width:100px;">미션 ID</th>
+          <th>태스크 내용</th>
+          <th style="width:110px;">성공률</th>
+          <th style="width:110px;">Misclick</th>
+          <th style="width:110px;">Drop-off</th>
+          <th style="width:110px;">소요 시간</th>
+          <th style="width:100px;">심각도</th>
+          <th>읽는 법</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-md">
+          <td><span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--accent3);">M-01</span></td>
+          <td>'돈 버는 서베이' 기능을 홈 화면에서 찾아보세요</td>
+          <td class="val-good">85.7%</td>
+          <td class="val-bad">79.6%</td>
+          <td class="val-warn">14.3%</td>
+          <td class="val-note">15.1s</td>
+          <td><span class="sg-badge sev-md">중*</span></td>
+          <td style="font-size:12px;color:#999;">성공률은 높지만 Misclick이 비정상적으로 높다. 숨겨진 마찰 존재.</td>
+        </tr>
+        <tr class="row-hi">
+          <td><span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--accent2);">M-02</span></td>
+          <td>화면에 보이는 설문지 중 하나를 골라 참여를 완료해주세요</td>
+          <td class="val-bad">57.1%</td>
+          <td class="val-bad">65.0%</td>
+          <td class="val-bad">42.9%</td>
+          <td style="color:#ccc;">23.4s</td>
+          <td><span class="sg-badge sev-hi">상</span></td>
+          <td style="font-size:12px;color:#999;">7명 중 3명 실패. 즉시 개선이 필요한 최우선 대상.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="col-label" style="margin-top:8px;">// AFTER — 개선 디자인 (n=4~7)</div>
+    <table class="mtable">
+      <thead>
+        <tr>
+          <th style="width:100px;">미션 ID</th>
+          <th>태스크 내용</th>
+          <th style="width:110px;">성공률</th>
+          <th style="width:110px;">Misclick</th>
+          <th style="width:110px;">Drop-off</th>
+          <th style="width:110px;">소요 시간</th>
+          <th style="width:100px;">심각도</th>
+          <th>변화</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-lo">
+          <td><span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--accent3);">M-01</span></td>
+          <td>'돈 버는 서베이' 기능을 홈 화면에서 찾아보세요</td>
+          <td class="val-good">100%</td>
+          <td class="val-warn">51.7%</td>
+          <td class="val-good">0%</td>
+          <td class="val-note">31.3s ⚠</td>
+          <td><span class="sg-badge sev-lo">하</span></td>
+          <td style="font-size:12px;color:#47cc88;">성공률·Drop-off 개선. 단, 소요 시간 증가는 추가 확인 필요.</td>
+        </tr>
+        <tr class="row-lo">
+          <td><span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);">M-02</span></td>
+          <td>화면에 보이는 설문지 중 하나를 골라 참여를 완료해주세요</td>
+          <td class="val-good">100%</td>
+          <td class="val-warn">41.2%</td>
+          <td class="val-good">0%</td>
+          <td class="val-good">17.3s</td>
+          <td><span class="sg-badge sev-lo">하</span></td>
+          <td style="font-size:12px;color:#47cc88;">모든 지표 개선. 심각도 상 → 하로 완전히 해소됨.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="bottom-row">
+      <div class="br-cell">
+        <div class="brc-label">✅ 표에서 읽을 수 있는 것</div>
+        <p>Before에서 <strong>M-02가 심각도 상(上)</strong>으로 즉시 개선 대상임이 한눈에 보인다. After에서 두 미션 모두 심각도가 <em>하(下)</em>로 내려갔다.</p>
+      </div>
+      <div class="br-cell">
+        <div class="brc-label">⚠ 표만으로는 알 수 없는 것</div>
+        <p>M-01의 소요 시간이 <strong>15.1s → 31.3s로 두 배 늘었다.</strong> 성공률은 올랐지만 왜 더 오래 걸렸는지는 표만으로 알 수 없다. 다음 단계인 Behavior Mapping이 필요하다.</p>
+      </div>
+      <div class="br-cell">
+        <div class="brc-label">💡 단일 지표를 믿지 말 것</div>
+        <p>성공률만 보면 M-01은 Before에서도 <strong>85.7%로 "괜찮아 보인다".</strong> 그러나 Misclick 79.6%를 함께 보면 전혀 다른 이야기가 된다. 항상 여러 지표를 함께 읽자.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">08 / 14</div>
+</div>
+
+<!-- SLIDE 09 — Behavior Mapping 개념 -->
+<div class="slide" id="s09">
+  <div class="left">
+    <div class="section-tag" style="color:var(--accent);">Method 03</div>
+    <h2>Behavior<br><em>Mapping</em></h2>
+    <div class="method-label">사용자 경로를 흐름으로 시각화하기</div>
+
+    <p class="def-text">
+      사용자가 화면에서 화면으로 이동한 <strong>경로 전체를 흐름도로 그리는</strong> 방법이다.
+      어디서 헤매고, 어디서 포기했는지,
+      어떤 경로가 가장 많이 선택됐는지가 한눈에 보인다.
+      Maze의 Navigation Overview가 바로 이 결과물이다.
+    </p>
+
+    <div class="when-box">
+      <div class="wb-label">이럴 때 사용해요</div>
+      <div class="wb-text">
+        Metrics Matrix에서 문제 화면을 찾았는데, <strong>어떤 경로로 헤맸는지</strong> 더 알고 싶을 때.<br>
+        성공률은 비슷한데 <strong>사람마다 가는 길이 다를 것 같을 때</strong>.<br>
+        개선 전후의 경로 변화를 <strong>시각적으로 보여줘야 할 때</strong>.
+      </div>
+    </div>
+
+    <div class="tags-row">
+      <span class="mc-tag mct-qn" style="font-size:11px;padding:5px 16px;">정량 데이터</span>
+      <span class="mc-tag mct-bh" style="font-size:11px;padding:5px 16px;">행동 지향</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="read-guide">
+      <div class="rg-head">// 샌키 다이어그램(Sankey Diagram) 읽는 법</div>
+      <div class="rg-row">
+        <div class="rg-icon">📏</div>
+        <div class="rg-body">
+          <div class="rg-title">선의 두께 = 사람 수</div>
+          <div class="rg-desc">선이 굵을수록 그 경로를 선택한 사람이 많다는 뜻이다. 얇아질수록 이탈이 일어났다는 신호다.</div>
+        </div>
+      </div>
+      <div class="rg-row">
+        <div class="rg-icon" style="color:#47cc88;">🟢</div>
+        <div class="rg-body">
+          <div class="rg-title" style="color:#47cc88;">초록색 = 성공 경로</div>
+          <div class="rg-desc">의도한 흐름대로 목적지에 도달한 사용자의 경로. 굵고 곧을수록 좋다.</div>
+        </div>
+      </div>
+      <div class="rg-row">
+        <div class="rg-icon" style="color:#ff6060;">🔴</div>
+        <div class="rg-body">
+          <div class="rg-title" style="color:#ff6060;">빨간색 = 실패 / 이탈 경로</div>
+          <div class="rg-desc">오클릭으로 잘못된 화면으로 간 경우, 또는 중간에 포기한 경우. 빨간 선이 많은 구간이 문제 지점이다.</div>
+        </div>
+      </div>
+      <div class="rg-row">
+        <div class="rg-icon">🔍</div>
+        <div class="rg-body">
+          <div class="rg-title">선이 끊기거나 얇아지는 곳을 주목</div>
+          <div class="rg-desc">흐름이 갑자기 갈라지거나 줄어드는 지점이 개선이 필요한 핵심 구간이다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="principle-box">
+      <div class="pb-label">⚡ 핵심 원칙 — 사실과 해석을 분리하자</div>
+      <div class="fact-interp">
+        <div class="fi-box fi-fact">
+          <div class="fi-label">✓ 사실 (기록할 것)</div>
+          <p>"사용자가 결제 버튼을 3번 눌렀다"</p>
+        </div>
+        <div class="fi-box fi-interp">
+          <div class="fi-label">✗ 해석 (분석 단계에서)</div>
+          <p>"버튼이 눈에 안 띄었을 것이다"</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tb-label">💡 TIP</div>
+      <div class="tb-text">
+        Maze를 사용했다면 Navigation Overview 화면이 <strong>이미 완성된 Behavior Map</strong>이다.
+        별도로 그릴 필요 없이, 이것을 Before/After로 나란히 놓고 비교하는 것만으로도 충분하다.
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">09 / 14</div>
+</div>
+
+<!-- ══════════════════════════════════
+  SLIDE 10 — Behavior Mapping 예시
+══════════════════════════════════ -->
+<style>
+#s10 {
+  flex-direction: column;
+}
+#s10 .top-bar {
+  height: 130px;
+  padding: 0 100px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-shrink: 0;
+  background: #0d1400;
+}
+#s10 .top-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 16px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+#s10 .top-bar h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  line-height: 1;
+}
+#s10 .top-bar h2 em { color: var(--accent); font-style: normal; }
+#s10 .top-desc {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.7;
+}
+
+#s10 .body {
+  flex: 1;
+  display: flex;
+}
+
+/* sankey panels */
+#s10 .sankey-panel {
+  flex: 1;
+  padding: 32px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+#s10 .sankey-panel:first-child {
+  border-right: 1px solid var(--border);
+}
+#s10 .sp-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+#s10 .sp-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  flex: 1;
+}
+#s10 .sp-before .sp-title { color: var(--accent2); }
+#s10 .sp-after .sp-title { color: var(--accent); }
+#s10 .sp-stats {
+  display: flex;
+  gap: 20px;
+}
+#s10 .stat-item {
+  text-align: center;
+}
+#s10 .stat-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  line-height: 1;
+}
+#s10 .stat-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+#s10 .sp-before .s-success { color: var(--accent2); }
+#s10 .sp-after .s-success { color: var(--accent); }
+#s10 .s-miss { color: #ff6060; }
+#s10 .s-drop-b { color: var(--accent2); }
+#s10 .s-drop-a { color: #47cc88; }
+
+#s10 .sankey-svg-wrap {
+  flex: 1;
+  position: relative;
+}
+#s10 svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* legend + insight */
+#s10 .bottom-bar {
+  height: 110px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-shrink: 0;
+}
+#s10 .legend {
+  width: 340px;
+  padding: 18px 40px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+#s10 .legend-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+#s10 .legend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #bbb;
+}
+#s10 .leg-line {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+#s10 .insights-bar {
+  flex: 1;
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+  padding: 1px;
+}
+#s10 .insight-cell {
+  flex: 1;
+  background: var(--surface);
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#s10 .ic-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+#s10 .ic-text {
+  font-size: 13px;
+  color: #bbb;
+  line-height: 1.55;
+}
+#s10 .ic-text strong { color: var(--text); font-weight: 700; }
+</style>
+
+<div class="slide" id="s10">
+  <div class="top-bar">
+    <div class="top-badge">Method 03 · Example</div>
+    <h2>Behavior Mapping — <em>경로가 바뀌면 결과가 바뀐다</em></h2>
+    <p class="top-desc">
+      카카오뱅크 '돈 버는 서베이' 미션 2 (설문 참여 완료) Before/After 경로 비교.<br>
+      선의 두께 = 해당 경로를 선택한 사용자 수. 초록 = 성공, 빨강 = 실패/이탈.
+    </p>
+  </div>
+
+  <div class="body">
+
+    <!-- BEFORE PANEL -->
+    <div class="sankey-panel sp-before">
+      <div class="sp-header">
+        <div class="sp-title">BEFORE — 기존 디자인 (n=7)</div>
+        <div class="sp-stats">
+          <div class="stat-item">
+            <div class="stat-val s-success">57.1%</div>
+            <div class="stat-lbl">SUCCESS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val s-miss">65.0%</div>
+            <div class="stat-lbl">MISCLICK</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val s-drop-b">42.9%</div>
+            <div class="stat-lbl">DROP-OFF</div>
+          </div>
+        </div>
+      </div>
+      <div class="sankey-svg-wrap">
+        <svg viewBox="0 0 820 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <marker id="arrow-r" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#ff404066"/>
+            </marker>
+          </defs>
+
+          <!-- Step labels -->
+          <text x="50" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">START</text>
+          <text x="190" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">STEP 2</text>
+          <text x="330" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">STEP 3</text>
+          <text x="470" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">STEP 4-5</text>
+          <text x="610" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">STEP 6-7</text>
+          <text x="750" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">완료</text>
+
+          <!-- ── 성공 흐름 (초록, 4/7명) ── -->
+          <!-- Main success path: thick green flow -->
+          <path d="M70,80 C130,80 130,90 190,90" stroke="#47cc88" stroke-width="36" fill="none" stroke-opacity="0.5" stroke-linecap="round"/>
+          <path d="M210,90 C270,90 270,95 330,95" stroke="#47cc88" stroke-width="28" fill="none" stroke-opacity="0.5" stroke-linecap="round"/>
+          <path d="M350,95 C410,95 410,100 470,100" stroke="#47cc88" stroke-width="22" fill="none" stroke-opacity="0.5" stroke-linecap="round"/>
+          <path d="M490,100 C550,100 550,105 610,105" stroke="#47cc88" stroke-width="22" fill="none" stroke-opacity="0.5" stroke-linecap="round"/>
+          <path d="M630,105 C690,105 690,110 750,110" stroke="#47cc88" stroke-width="22" fill="none" stroke-opacity="0.5" stroke-linecap="round"/>
+
+          <!-- ── 오경로 흐름 (빨강, 3/7명) ── -->
+          <!-- Error path 1: step2 → wrong screen → back → step3 -->
+          <path d="M70,150 C130,150 130,200 190,200" stroke="#ff4040" stroke-width="18" fill="none" stroke-opacity="0.5" stroke-linecap="round"/>
+          <path d="M210,200 C270,200 270,240 330,240" stroke="#ff4040" stroke-width="14" fill="none" stroke-opacity="0.45" stroke-linecap="round"/>
+          <!-- reverse path: wrong step back -->
+          <path d="M350,240 C390,240 390,210 330,190" stroke="#ff4040" stroke-width="10" fill="none" stroke-opacity="0.4" stroke-linecap="round" stroke-dasharray="6,3"/>
+          <path d="M330,190 C290,190 290,160 330,150" stroke="#ff4040" stroke-width="8" fill="none" stroke-opacity="0.35" stroke-linecap="round" stroke-dasharray="6,3"/>
+
+          <!-- Error path 2: step2 → step3 → drop-off at step4 -->
+          <path d="M210,200 C270,200 270,170 330,170" stroke="#ff4040" stroke-width="10" fill="none" stroke-opacity="0.4" stroke-linecap="round"/>
+          <path d="M350,170 C410,170 410,200 470,200" stroke="#ff4040" stroke-width="10" fill="none" stroke-opacity="0.4" stroke-linecap="round"/>
+
+          <!-- Drop-off indicator -->
+          <rect x="450" y="240" width="90" height="28" rx="2" fill="#4a1515" stroke="#7a2020"/>
+          <text x="495" y="259" fill="#ff6060" font-size="10" font-family="DM Mono" text-anchor="middle" letter-spacing="1">DROP-OFF</text>
+          <path d="M470,214 L470,240" stroke="#ff4040" stroke-width="3" stroke-opacity="0.6" stroke-dasharray="4,3"/>
+
+          <!-- ── Nodes ── -->
+          <!-- Start -->
+          <rect x="28" y="50" width="44" height="200" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <!-- Step 2 nodes -->
+          <rect x="170" y="65" width="40" height="160" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <rect x="170" y="178" width="40" height="60" rx="3" fill="#3a1a1a" stroke="#5a2a2a"/>
+          <!-- Step 3 nodes -->
+          <rect x="310" y="70" width="40" height="140" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <rect x="310" y="155" width="40" height="55" rx="3" fill="#3a1a1a" stroke="#5a2a2a"/>
+          <rect x="310" y="225" width="40" height="30" rx="3" fill="#3a1a1a" stroke="#5a2a2a"/>
+          <!-- Step 4-5 nodes -->
+          <rect x="450" y="75" width="40" height="140" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <rect x="450" y="185" width="40" height="35" rx="3" fill="#3a1a1a" stroke="#5a2a2a"/>
+          <!-- Step 6-7 nodes -->
+          <rect x="590" y="78" width="40" height="120" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <!-- End nodes -->
+          <rect x="730" y="82" width="40" height="100" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <!-- Trophy icon area -->
+          <text x="750" y="78" fill="#C8FF00" font-size="12" text-anchor="middle">🏆</text>
+
+          <!-- Screen labels -->
+          <text x="170" y="258" fill="#555" font-size="9" font-family="DM Mono" text-anchor="middle">Pro-2</text>
+          <text x="170" y="272" fill="#444" font-size="9" font-family="DM Mono" text-anchor="middle">Pro-3</text>
+          <text x="310" y="275" fill="#555" font-size="9" font-family="DM Mono" text-anchor="middle">Pro-3</text>
+          <text x="310" y="289" fill="#444" font-size="9" font-family="DM Mono" text-anchor="middle">Pro-2</text>
+          <text x="450" y="240" fill="#444" font-size="9" font-family="DM Mono" text-anchor="middle">Pro-1</text>
+
+          <!-- Annotation: problem zone -->
+          <rect x="295" y="300" width="200" height="36" rx="2" fill="#1a0808" stroke="#3a1010"/>
+          <text x="395" y="316" fill="#ff8080" font-size="10" font-family="DM Mono" text-anchor="middle">⚠ 역행 경로 다수 발생</text>
+          <text x="395" y="330" fill="#886666" font-size="10" font-family="DM Mono" text-anchor="middle">Step 3-4 구간 혼란 집중</text>
+
+          <!-- Annotation: drop off -->
+          <rect x="440" y="300" width="140" height="36" rx="2" fill="#1a0808" stroke="#3a1010"/>
+          <text x="510" y="316" fill="#ff6060" font-size="10" font-family="DM Mono" text-anchor="middle">3/7명 이탈</text>
+          <text x="510" y="330" fill="#886666" font-size="10" font-family="DM Mono" text-anchor="middle">(42.9%)</text>
+
+          <!-- Step connector lines (vertical guides) -->
+          <line x1="140" y1="30" x2="140" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="280" y1="30" x2="280" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="420" y1="30" x2="420" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="560" y1="30" x2="560" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="700" y1="30" x2="700" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- AFTER PANEL -->
+    <div class="sankey-panel sp-after">
+      <div class="sp-header">
+        <div class="sp-title">AFTER — 개선 디자인 (n=4)</div>
+        <div class="sp-stats">
+          <div class="stat-item">
+            <div class="stat-val s-success">100%</div>
+            <div class="stat-lbl">SUCCESS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val s-miss">41.2%</div>
+            <div class="stat-lbl">MISCLICK</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val s-drop-a">0%</div>
+            <div class="stat-lbl">DROP-OFF</div>
+          </div>
+        </div>
+      </div>
+      <div class="sankey-svg-wrap">
+        <svg viewBox="0 0 820 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+
+          <!-- Step labels -->
+          <text x="50" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">START</text>
+          <text x="190" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">STEP 2</text>
+          <text x="330" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">STEP 3</text>
+          <text x="470" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">STEP 4</text>
+          <text x="610" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">STEP 5</text>
+          <text x="750" y="18" fill="#555" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">완료</text>
+
+          <!-- ── 모든 경로 성공 (초록) ── -->
+          <!-- Main path A: 2명 (두꺼운 메인 경로) -->
+          <path d="M70,90 C130,90 130,90 190,90" stroke="#47cc88" stroke-width="44" fill="none" stroke-opacity="0.55" stroke-linecap="round"/>
+          <path d="M210,90 C270,90 270,90 330,90" stroke="#47cc88" stroke-width="36" fill="none" stroke-opacity="0.55" stroke-linecap="round"/>
+          <path d="M350,90 C410,90 410,95 470,95" stroke="#47cc88" stroke-width="30" fill="none" stroke-opacity="0.55" stroke-linecap="round"/>
+          <path d="M490,95 C550,95 550,100 610,100" stroke="#47cc88" stroke-width="30" fill="none" stroke-opacity="0.55" stroke-linecap="round"/>
+          <path d="M630,100 C690,100 690,105 750,105" stroke="#47cc88" stroke-width="30" fill="none" stroke-opacity="0.55" stroke-linecap="round"/>
+
+          <!-- Variant path B: 2명 (약간 다른 경로지만 모두 성공) -->
+          <path d="M70,170 C130,170 130,160 190,155" stroke="#47cc88" stroke-width="20" fill="none" stroke-opacity="0.4" stroke-linecap="round"/>
+          <path d="M210,155 C270,155 270,150 330,148" stroke="#47cc88" stroke-width="18" fill="none" stroke-opacity="0.4" stroke-linecap="round"/>
+          <path d="M350,148 C410,148 410,155 470,158" stroke="#47cc88" stroke-width="16" fill="none" stroke-opacity="0.4" stroke-linecap="round"/>
+          <path d="M490,158 C550,158 550,155 610,155" stroke="#47cc88" stroke-width="16" fill="none" stroke-opacity="0.4" stroke-linecap="round"/>
+          <path d="M630,155 C690,155 690,150 750,148" stroke="#47cc88" stroke-width="16" fill="none" stroke-opacity="0.4" stroke-linecap="round"/>
+
+          <!-- ── Nodes (모두 초록) ── -->
+          <rect x="28" y="55" width="44" height="200" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <rect x="170" y="60" width="40" height="170" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <rect x="310" y="62" width="40" height="160" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <rect x="450" y="65" width="40" height="165" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <rect x="590" y="68" width="40" height="160" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <rect x="730" y="70" width="40" height="150" rx="3" fill="#1a3a1a" stroke="#2a5a2a"/>
+          <text x="750" y="66" fill="#C8FF00" font-size="12" text-anchor="middle">🏆</text>
+
+          <!-- No red paths annotation -->
+          <rect x="270" y="260" width="280" height="40" rx="2" fill="#0a1800" stroke="#1a3800"/>
+          <text x="410" y="278" fill="#47cc88" font-size="11" font-family="DM Mono" text-anchor="middle" letter-spacing="1">빨간 경로 완전히 사라짐</text>
+          <text x="410" y="294" fill="#336633" font-size="10" font-family="DM Mono" text-anchor="middle">전원 성공 경로만 남음 (Drop-off 0%)</text>
+
+          <!-- Misclick note: still some variance -->
+          <rect x="580" y="200" width="220" height="40" rx="2" fill="#1a1200" stroke="#3a2800"/>
+          <text x="690" y="218" fill="#cc9900" font-size="10" font-family="DM Mono" text-anchor="middle">Misclick 41.2% 잔존</text>
+          <text x="690" y="232" fill="#886633" font-size="10" font-family="DM Mono" text-anchor="middle">경로 분산은 있으나 모두 성공</text>
+
+          <!-- Improvement arrow annotation -->
+          <text x="410" y="340" fill="#47cc88" font-size="20" text-anchor="middle">✓</text>
+          <text x="440" y="343" fill="#47cc88" font-size="12" font-family="DM Mono">경로는 여전히 여러 갈래지만, 모두 목적지 도달</text>
+
+          <!-- Step connector lines -->
+          <line x1="140" y1="30" x2="140" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="280" y1="30" x2="280" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="420" y1="30" x2="420" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="560" y1="30" x2="560" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="700" y1="30" x2="700" y2="390" stroke="#1e1e1e" stroke-width="1" stroke-dasharray="4,6"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="bottom-bar">
+    <div class="legend">
+      <div class="legend-title">// LEGEND</div>
+      <div class="legend-row">
+        <div class="leg-line" style="background:#47cc88;opacity:0.7;"></div>
+        <span>성공 경로 — 의도한 흐름대로 완료</span>
+      </div>
+      <div class="legend-row">
+        <div class="leg-line" style="background:#ff4040;opacity:0.7;"></div>
+        <span>실패 / 오경로 — 잘못된 화면으로 이동</span>
+      </div>
+      <div class="legend-row">
+        <div class="leg-line" style="background:#ff4040;opacity:0.5;border-top:2px dashed #ff4040;background:none;"></div>
+        <span style="margin-left:2px;">역행 경로 — 이전 화면으로 되돌아감</span>
+      </div>
+    </div>
+    <div class="insights-bar">
+      <div class="insight-cell">
+        <div class="ic-label" style="color:var(--accent2);">BEFORE 에서 보이는 것</div>
+        <div class="ic-text">Step 3→4 구간에서 <strong>역행과 오경로가 집중</strong> 발생. 7명 중 3명이 이 구간을 넘지 못하고 이탈했다. 경로 자체가 복잡하고 방향을 잃기 쉬운 구조였다.</div>
+      </div>
+      <div class="insight-cell">
+        <div class="ic-label" style="color:var(--accent);">AFTER 에서 보이는 것</div>
+        <div class="ic-text">빨간 경로가 완전히 사라지고 <strong>전원 성공</strong>. 경로는 여전히 여러 갈래지만 모두 목적지에 도달한다. Misclick 41.2%는 남아있어 추가 개선 여지가 있다.</div>
+      </div>
+      <div class="insight-cell">
+        <div class="ic-label" style="color:var(--accent3);">Behavior Map 이 알려준 것</div>
+        <div class="ic-text">성공률 숫자만으로는 <strong>"어디서 막혔는가"를 알 수 없다.</strong> 경로를 시각화해야 비로소 Step 3→4 구간이 문제였음이 드러난다.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">10 / 14</div>
+</div>
+
 </body>
 </html>
