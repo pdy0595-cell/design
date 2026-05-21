@@ -932,5 +932,720 @@ body {
   <div class="slide-num">03 / 14</div>
 </div>
 
+<!-- ══════════════════════════════════
+  SLIDE 04 — 4가지 방법 한눈에 보기
+══════════════════════════════════ -->
+<style>
+/* ── S04 ── */
+#s04 {
+  flex-direction: column;
+}
+#s04 .top-bar {
+  height: 148px;
+  padding: 0 120px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  flex-shrink: 0;
+}
+#s04 .top-bar h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 76px;
+  letter-spacing: 2px;
+  line-height: 1;
+  white-space: nowrap;
+}
+#s04 .top-bar h2 em { color: var(--accent); font-style: normal; }
+#s04 .top-desc {
+  font-size: 16px;
+  color: #888;
+  line-height: 1.8;
+  max-width: 800px;
+}
+#s04 .body {
+  flex: 1;
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+  padding: 1px;
+}
+#s04 .method-card {
+  flex: 1;
+  background: var(--surface);
+  padding: 52px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+#s04 .method-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+#s04 .mc-01::before { background: #47cc88; }
+#s04 .mc-02::before { background: var(--accent3); }
+#s04 .mc-03::before { background: var(--accent); }
+#s04 .mc-04::before { background: var(--accent2); }
+
+#s04 .mc-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+#s04 .mc-01 .mc-num { color: #1a3a1a; }
+#s04 .mc-02 .mc-num { color: #0d1e2a; }
+#s04 .mc-03 .mc-num { color: #1a2a00; }
+#s04 .mc-04 .mc-num { color: #2a1400; }
+
+#s04 .mc-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+#s04 .mc-01 .mc-name { color: #47cc88; }
+#s04 .mc-02 .mc-name { color: var(--accent3); }
+#s04 .mc-03 .mc-name { color: var(--accent); }
+#s04 .mc-04 .mc-name { color: var(--accent2); }
+
+#s04 .mc-desc {
+  font-size: 15px;
+  color: #bbb;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  flex: 1;
+}
+#s04 .mc-desc strong { color: var(--text); font-weight: 700; }
+
+#s04 .mc-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+#s04 .mc-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+.mct-ql { background: #47cc8820; color: #47cc88; border: 1px solid #47cc8840; }
+.mct-qn { background: #00C8FF20; color: var(--accent3); border: 1px solid #00C8FF40; }
+.mct-bh { background: #C8FF0020; color: var(--accent); border: 1px solid #C8FF0040; }
+.mct-at { background: #FF5C0020; color: var(--accent2); border: 1px solid #FF5C0040; }
+
+#s04 .mc-question {
+  background: #0d0d0d;
+  border: 1px solid var(--border);
+  padding: 14px 18px;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+}
+#s04 .mc-question span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 6px;
+}
+#s04 .mc-01 .mc-question span { color: #47cc88; }
+#s04 .mc-02 .mc-question span { color: var(--accent3); }
+#s04 .mc-03 .mc-question span { color: var(--accent); }
+#s04 .mc-04 .mc-question span { color: var(--accent2); }
+
+/* ── S05 Affinity Mapping 개념 ── */
+#s05 {
+  align-items: stretch;
+}
+#s05 .left {
+  width: 680px;
+  padding: 100px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+}
+#s05 h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 88px;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+#s05 h2 em { color: #47cc88; font-style: normal; }
+#s05 .method-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+#s05 .def-text {
+  font-size: 17px;
+  color: #ccc;
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+#s05 .def-text strong { color: #47cc88; font-weight: 700; }
+#s05 .when-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid #47cc88;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+#s05 .wb-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #47cc88;
+  margin-bottom: 12px;
+}
+#s05 .wb-text {
+  font-size: 14px;
+  color: #bbb;
+  line-height: 1.8;
+}
+#s05 .wb-text strong { color: var(--text); font-weight: 700; }
+#s05 .tags-row {
+  display: flex;
+  gap: 8px;
+}
+
+#s05 .right {
+  flex: 1;
+  padding: 80px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+#s05 .step-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+#s05 .step-row {
+  display: flex;
+  align-items: stretch;
+  background: var(--border);
+  gap: 1px;
+}
+#s05 .sr-num {
+  width: 72px;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  color: #47cc88;
+  flex-shrink: 0;
+}
+#s05 .sr-body {
+  flex: 1;
+  background: var(--surface);
+  padding: 20px 28px;
+}
+#s05 .sr-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+#s05 .sr-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+#s05 .sr-example {
+  width: 320px;
+  background: #0a1400;
+  border-left: 1px solid #1a3000;
+  padding: 20px 24px;
+  font-size: 13px;
+  color: #80cc80;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#s05 .tip-box {
+  background: #0d1a00;
+  border: 1px solid #1e3a00;
+  border-left: 3px solid var(--accent);
+  padding: 20px 24px;
+}
+#s05 .tb-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+#s05 .tb-text {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.7;
+}
+#s05 .tb-text strong { color: var(--accent); }
+
+/* ── S06 Affinity Mapping 예시 ── */
+#s06 {
+  flex-direction: column;
+}
+#s06 .top-bar {
+  height: 140px;
+  padding: 0 100px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-shrink: 0;
+  background: #0a0d00;
+}
+#s06 .top-bar h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 60px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  line-height: 1;
+}
+#s06 .top-bar h2 em { color: #47cc88; font-style: normal; }
+#s06 .top-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #47cc88;
+  border: 1px solid #47cc88;
+  padding: 6px 16px;
+  white-space: nowrap;
+}
+#s06 .top-desc {
+  font-size: 15px;
+  color: #888;
+  line-height: 1.7;
+}
+
+#s06 .body {
+  flex: 1;
+  display: flex;
+}
+#s06 .raw-col {
+  width: 420px;
+  border-right: 1px solid var(--border);
+  padding: 48px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#s06 .raw-col .col-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+#s06 .raw-note {
+  background: #111;
+  border: 1px solid var(--border);
+  padding: 14px 18px;
+  font-size: 13px;
+  color: #bbb;
+  line-height: 1.6;
+  position: relative;
+  border-left: 3px solid var(--border);
+}
+#s06 .raw-note .note-src {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--dim);
+  margin-top: 6px;
+}
+
+#s06 .arrow-col {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+  flex-direction: column;
+  gap: 8px;
+}
+#s06 .arrow-col span {
+  font-family: 'DM Mono', monospace;
+  font-size: 20px;
+  color: var(--accent);
+  writing-mode: vertical-rl;
+  letter-spacing: 4px;
+}
+
+#s06 .clusters {
+  flex: 1;
+  padding: 40px 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-content: start;
+}
+#s06 .cluster {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+#s06 .cluster-head {
+  padding: 12px 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+#s06 .cl-a .cluster-head { background: #0d2010; color: #47cc88; border-bottom: 1px solid #1a3a1a; }
+#s06 .cl-b .cluster-head { background: #1a1000; color: var(--accent2); border-bottom: 1px solid #3a2000; }
+#s06 .cl-c .cluster-head { background: #0d1820; color: var(--accent3); border-bottom: 1px solid #1a2a3a; }
+#s06 .cl-d .cluster-head { background: #1a1a00; color: var(--accent); border-bottom: 1px solid #3a3a00; }
+#s06 .cluster-notes {
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+#s06 .cn-item {
+  font-size: 13px;
+  color: #bbb;
+  line-height: 1.5;
+  padding: 8px 10px;
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+}
+
+#s06 .insight-col {
+  width: 400px;
+  border-left: 1px solid var(--border);
+  padding: 48px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+#s06 .ic-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+#s06 .ic-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 18px 22px;
+}
+#s06 .ic-card .ic-cluster {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+#s06 .cl-a .ic-cluster { color: #47cc88; }
+#s06 .cl-b .ic-cluster { color: var(--accent2); }
+#s06 .cl-c .ic-cluster { color: var(--accent3); }
+#s06 .cl-d .ic-cluster { color: var(--accent); }
+#s06 .ic-card p {
+  font-size: 13px;
+  color: #ccc;
+  line-height: 1.7;
+}
+#s06 .ic-card strong { color: var(--text); font-weight: 700; }
+</style>
+
+<!-- ══════════════════════════════════
+  SLIDE 04 — 4가지 방법 한눈에 보기
+══════════════════════════════════ -->
+<div class="slide" id="s04">
+  <div class="top-bar">
+    <div class="section-tag">Overview</div>
+    <h2>4가지 <em>방법</em> 한눈에 보기</h2>
+    <p class="top-desc">
+      같은 데이터도 어떤 방법으로 보느냐에 따라 전혀 다른 것이 보인다.<br>
+      4가지 방법은 서로 다른 질문에 답하며, 함께 쓸수록 더 입체적인 그림이 나온다.
+    </p>
+  </div>
+  <div class="body">
+
+    <div class="method-card mc-01">
+      <div>
+        <div class="mc-num">01</div>
+        <div class="mc-name">Affinity<br>Mapping</div>
+        <p class="mc-desc">
+          인터뷰나 관찰에서 얻은 <strong>발언과 행동들을 비슷한 것끼리 묶어</strong> 패턴을 찾는 방법. 흩어진 조각들이 하나의 주제로 모일 때, 숫자로는 보이지 않던 문제가 드러난다.
+        </p>
+        <div class="mc-tags">
+          <span class="mc-tag mct-ql">정성</span>
+          <span class="mc-tag mct-at">태도</span>
+        </div>
+      </div>
+      <div class="mc-question">
+        <span>답하는 질문</span>
+        "사용자들이 공통으로 겪는 불편함의 패턴은 무엇인가?"
+      </div>
+    </div>
+
+    <div class="method-card mc-02">
+      <div>
+        <div class="mc-num">02</div>
+        <div class="mc-name">Metrics<br>Matrix</div>
+        <p class="mc-desc">
+          테스트에서 나온 <strong>수치들을 한 눈에 비교할 수 있는 표로 정리</strong>하고, 어떤 문제가 가장 시급한지 우선순위를 매기는 방법. 숫자의 홍수에서 핵심을 건져낸다.
+        </p>
+        <div class="mc-tags">
+          <span class="mc-tag mct-qn">정량</span>
+          <span class="mc-tag mct-bh">행동</span>
+        </div>
+      </div>
+      <div class="mc-question">
+        <span>답하는 질문</span>
+        "어떤 화면에서, 얼마나 많은 사람이 어려움을 겪었는가?"
+      </div>
+    </div>
+
+    <div class="method-card mc-03">
+      <div>
+        <div class="mc-num">03</div>
+        <div class="mc-name">Behavior<br>Mapping</div>
+        <p class="mc-desc">
+          사용자가 화면을 넘어가는 <strong>경로 전체를 흐름도로 시각화</strong>하는 방법. 어디서 헤매고, 어디서 포기했는지가 한눈에 보인다. Maze의 Navigation Overview가 바로 이것이다.
+        </p>
+        <div class="mc-tags">
+          <span class="mc-tag mct-qn">정량</span>
+          <span class="mc-tag mct-bh">행동</span>
+        </div>
+      </div>
+      <div class="mc-question">
+        <span>답하는 질문</span>
+        "사용자들은 어떤 경로로 이동했고, 어디서 막혔는가?"
+      </div>
+    </div>
+
+    <div class="method-card mc-04">
+      <div>
+        <div class="mc-num">04</div>
+        <div class="mc-name">Behavioral +<br>Attitudinal<br>Correlation</div>
+        <p class="mc-desc">
+          <strong>실제 행동 수치와 사용자의 만족도를 나란히 놓고</strong> 비교하는 방법. 둘이 일치하지 않는 지점에서 가장 중요한 문제가 숨어 있다.
+        </p>
+        <div class="mc-tags">
+          <span class="mc-tag mct-bh">행동</span>
+          <span class="mc-tag mct-at">태도</span>
+        </div>
+      </div>
+      <div class="mc-question">
+        <span>답하는 질문</span>
+        "숫자는 괜찮은데 왜 사용자들은 불만족스러워 할까?"
+      </div>
+    </div>
+
+  </div>
+  <div class="slide-num">04 / 14</div>
+</div>
+
+<!-- ══════════════════════════════════
+  SLIDE 05 — Affinity Mapping 개념
+══════════════════════════════════ -->
+<div class="slide" id="s05">
+  <div class="left">
+    <div class="section-tag" style="color:#47cc88;">Method 01</div>
+    <h2>Affinity<br><em>Mapping</em></h2>
+    <div class="method-label">비슷한 것끼리 묶어 패턴 찾기</div>
+
+    <p class="def-text">
+      인터뷰나 관찰 세션에서 얻은 발언들을 포스트잇처럼 하나씩 적고,
+      <strong>비슷한 내용끼리 묶어</strong> 그룹을 만드는 방법이다.
+      개별 발언 하나하나는 의미가 작아 보여도,
+      묶이고 나면 <strong>사용자들이 공통으로 겪는 문제</strong>가 선명하게 드러난다.
+    </p>
+
+    <div class="when-box">
+      <div class="wb-label">이럴 때 사용해요</div>
+      <div class="wb-text">
+        인터뷰나 관찰 메모가 <strong>많이 쌓였는데</strong> 어디서부터 시작해야 할지 모를 때.<br>
+        숫자 데이터만으로는 <strong>"왜 그랬는지"가 보이지 않을 때</strong>.<br>
+        팀원들과 함께 데이터를 소화하고 싶을 때.
+      </div>
+    </div>
+
+    <div class="tags-row">
+      <span class="mc-tag mct-ql" style="font-size:11px;padding:5px 16px;">정성 데이터</span>
+      <span class="mc-tag mct-at" style="font-size:11px;padding:5px 16px;">태도 지향</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="section-tag" style="color:#47cc88;margin-bottom:20px;">진행 순서</div>
+    <div class="step-flow">
+      <div class="step-row">
+        <div class="sr-num">1</div>
+        <div class="sr-body">
+          <div class="sr-title">관찰 내용을 낱장으로 기록한다</div>
+          <div class="sr-desc">인터뷰 발언, 관찰한 행동 하나하나를 포스트잇 한 장에 하나씩 적는다. 해석하지 말고 있는 그대로 적는 것이 중요하다.</div>
+        </div>
+        <div class="sr-example">"설문 버튼이 어디 있는지 한참 찾았어요"</div>
+      </div>
+      <div class="step-row">
+        <div class="sr-num">2</div>
+        <div class="sr-body">
+          <div class="sr-title">비슷한 것끼리 옆에 놓는다</div>
+          <div class="sr-desc">같은 문제를 가리키는 것 같은 메모들을 모아 그룹을 만든다. 처음에는 어색해도 괜찮다. 여러 번 다시 배치하면서 맞는 위치를 찾아간다.</div>
+        </div>
+        <div class="sr-example">"찾기 어렵다"는 메모들이 한 곳으로 모인다</div>
+      </div>
+      <div class="step-row">
+        <div class="sr-num">3</div>
+        <div class="sr-body">
+          <div class="sr-title">각 그룹에 이름을 붙인다</div>
+          <div class="sr-desc">그룹을 대표하는 주제명을 붙인다. 이것이 하나의 클러스터(Cluster)가 된다. 클러스터 이름이 곧 사용자 문제의 핵심 주제다.</div>
+        </div>
+        <div class="sr-example">클러스터명: "탐색 어려움"</div>
+      </div>
+      <div class="step-row">
+        <div class="sr-num">4</div>
+        <div class="sr-body">
+          <div class="sr-title">클러스터에서 인사이트를 뽑는다</div>
+          <div class="sr-desc">각 클러스터가 말하는 것이 무엇인지 한 문장으로 정리한다. 이것이 이후 디자인 개선의 출발점이 된다.</div>
+        </div>
+        <div class="sr-example">"메인 화면에서 주요 기능을 찾기 어렵다"</div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tb-label">💡 TIP</div>
+      <div class="tb-text">
+        디지털 도구를 쓸 때는 <strong>FigJam, Miro, Notion</strong>을 활용할 수 있다.
+        포스트잇 색깔로 참여자나 주제를 구분하면 패턴이 더 빨리 보인다.
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">05 / 14</div>
+</div>
+
+<!-- ══════════════════════════════════
+  SLIDE 06 — Affinity Mapping 예시
+══════════════════════════════════ -->
+<div class="slide" id="s06">
+  <div class="top-bar">
+    <div class="top-badge">Method 01 · Example</div>
+    <h2>Affinity Mapping — <em>실제로 해보면</em></h2>
+    <p class="top-desc">
+      카카오뱅크 '돈 버는 서베이' 기능을 테스트한 후 진행한 인터뷰에서 나온 발언들을 묶어본 예시.<br>
+      <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--dim);">* 아래 인터뷰 발언은 테스트 상황을 바탕으로 구성한 예시입니다.</span>
+    </p>
+  </div>
+
+  <div class="body">
+    <!-- Raw Notes -->
+    <div class="raw-col">
+      <div class="col-label">// RAW — 인터뷰 발언 (가공 전)</div>
+      <div class="raw-note">
+        "서베이 버튼이 어디 있는지 모르겠어서 여기저기 눌러봤어요"
+        <div class="note-src">참여자 A</div>
+      </div>
+      <div class="raw-note">
+        "설문을 완료했는데 완료가 된 건지 아닌지 확인이 안 됐어요"
+        <div class="note-src">참여자 B</div>
+      </div>
+      <div class="raw-note">
+        "돈을 준다는 건 알겠는데 얼마인지 먼저 보여줬으면 했어요"
+        <div class="note-src">참여자 C</div>
+      </div>
+      <div class="raw-note">
+        "화면이 너무 많아서 중간에 내가 어디 있는 건지 몰랐어요"
+        <div class="note-src">참여자 D</div>
+      </div>
+      <div class="raw-note">
+        "뒤로 가기를 눌렀더니 처음부터 다시 해야 해서 당황했어요"
+        <div class="note-src">참여자 E</div>
+      </div>
+      <div class="raw-note">
+        "보상이 있다는 게 흥미로웠는데, 어떻게 받는지 안 나와 있어요"
+        <div class="note-src">참여자 F</div>
+      </div>
+      <div class="raw-note">
+        "설문 목록이 보이긴 했는데 어떤 걸 눌러야 하는지 헷갈렸어요"
+        <div class="note-src">참여자 G</div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="arrow-col">
+      <span>GROUP</span>
+      <span style="font-size:28px;writing-mode:horizontal-tb;">→</span>
+    </div>
+
+    <!-- Clusters -->
+    <div class="clusters">
+      <div class="cluster cl-a">
+        <div class="cluster-head">탐색 어려움 (3건)</div>
+        <div class="cluster-notes">
+          <div class="cn-item">"버튼이 어디 있는지 여기저기 눌러봤어요"</div>
+          <div class="cn-item">"어떤 걸 눌러야 하는지 헷갈렸어요"</div>
+          <div class="cn-item">"화면이 너무 많아서 내가 어디 있는지 몰랐어요"</div>
+        </div>
+      </div>
+      <div class="cluster cl-b">
+        <div class="cluster-head">피드백 부재 (2건)</div>
+        <div class="cluster-notes">
+          <div class="cn-item">"완료가 된 건지 아닌지 확인이 안 됐어요"</div>
+          <div class="cn-item">"뒤로 가기를 눌렀더니 처음부터 다시 해야 했어요"</div>
+        </div>
+      </div>
+      <div class="cluster cl-c">
+        <div class="cluster-head">보상 정보 불투명 (2건)</div>
+        <div class="cluster-notes">
+          <div class="cn-item">"얼마인지 먼저 보여줬으면 했어요"</div>
+          <div class="cn-item">"어떻게 받는지 안 나와 있어요"</div>
+        </div>
+      </div>
+      <div class="cluster cl-d">
+        <div class="cluster-head">긍정적 반응 (1건)</div>
+        <div class="cluster-notes">
+          <div class="cn-item">"보상이 있다는 게 흥미로웠어요"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Insights -->
+    <div class="insight-col">
+      <div class="ic-label">// 클러스터 → 인사이트</div>
+      <div class="ic-card cl-a">
+        <div class="ic-cluster">탐색 어려움</div>
+        <p>메인 화면에서 <strong>'돈 버는 서베이' 기능으로 가는 경로</strong>가 명확하지 않다. 사용자들이 시행착오를 겪으며 찾고 있다.</p>
+      </div>
+      <div class="ic-card cl-b">
+        <div class="ic-cluster">피드백 부재</div>
+        <p>설문 완료 후 <strong>완료 여부를 확인할 수 없어</strong> 혼란을 겪는다. 중간 이탈 시 진행 상태도 보존되지 않는다.</p>
+      </div>
+      <div class="ic-card cl-c">
+        <div class="ic-cluster">보상 정보 불투명</div>
+        <p>보상이 있다는 것은 알지만 <strong>구체적인 금액과 수령 방법</strong>이 보이지 않아 참여 동기가 낮아진다.</p>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid var(--border);border-left:3px solid var(--accent);padding:16px 20px;margin-top:4px;">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);margin-bottom:8px;">다음 단계</div>
+        <p style="font-size:13px;color:#bbb;line-height:1.6;">'탐색 어려움'이 가장 많은 건수(3건). Metrics Matrix로 넘어가 수치로도 확인해본다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">06 / 14</div>
+</div>
+
 </body>
 </html>
