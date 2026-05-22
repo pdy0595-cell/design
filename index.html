@@ -3540,21 +3540,22 @@ body {
   <div class="left">
     <div class="section-tag" style="color:var(--accent2);">Method 04</div>
     <h2>Behavioral +<br>Attitudinal<br><em>Correlation</em></h2>
-    <div class="method-label">행동 데이터와 태도 점수를 나란히 놓기</div>
+    <div class="method-label">행동과 태도, 두 가지를 함께 읽기</div>
 
     <p class="def-text">
-      실제 행동 수치(성공률, Misclick)와
-      사용자가 느낀 만족도를 <strong>같은 기준으로 나란히 놓고 비교</strong>하는 방법이다.
-      두 데이터가 일치하지 않는 곳에서
-      숫자만 봐서는 절대 알 수 없는 문제가 드러난다.
+      시험에서 100점을 받았는데도 "이 시험 너무 힘들었다"고 느낄 수 있다.
+      <strong>성공했다는 것</strong>과 <strong>좋은 경험이었다는 것</strong>은 전혀 다른 말이다.<br><br>
+      Correlation은 이 두 가지를 나란히 놓는다.
+      사용자가 실제로 한 행동(수치)과, 그 과정에서 느낀 감정(태도)을 함께 보면
+      <strong>숫자만으로는 절대 보이지 않는 문제</strong>가 드러난다.
     </p>
 
     <div class="when-box">
       <div class="wb-label">이럴 때 사용해요</div>
       <div class="wb-text">
-        성공률은 높은데 <strong>사용자 반응이 차갑게 느껴질 때</strong>.<br>
-        개선 후 숫자가 좋아졌는데 <strong>팀원들이 실감을 못 할 때</strong>.<br>
-        어떤 부분이 가장 불만족스러운지 <strong>우선순위를 잡고 싶을 때</strong>.
+        성공률은 높은데 <strong>왠지 사용자 반응이 차가울 때</strong>.<br>
+        "수치는 좋아졌는데 뭔가 아직 어색하다"는 <strong>느낌이 들 때</strong>.<br>
+        개선 효과를 숫자로 <strong>설득력 있게 설명해야 할 때</strong>.
       </div>
     </div>
 
@@ -3565,48 +3566,122 @@ body {
   </div>
 
   <div class="right">
-    <div class="section-tag" style="color:var(--accent2);margin-bottom:16px;">4가지 조합 패턴</div>
-    <div class="axis-labels">
-      <span>← 태도 낮음</span>
-      <span>태도 높음 →</span>
+    <div class="section-tag" style="color:var(--accent2);margin-bottom:20px;">왜 두 가지를 함께 봐야 하는가</div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);padding:28px 32px;margin-bottom:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent2);margin-bottom:16px;">// 하나만 보면 이런 일이 생긴다</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);">
+        <div style="background:#150808;padding:20px 24px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:#ff6060;margin-bottom:10px;">행동 데이터만 보면</div>
+          <div style="font-size:14px;color:#ccc;line-height:1.8;">성공률 85.7%<br>→ "괜찮네, 넘어가자"<br><br><strong style="color:#ff6060;">숨겨진 마찰을 놓친다</strong></div>
+        </div>
+        <div style="background:#0d1500;padding:20px 24px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:#47cc88;margin-bottom:10px;">두 가지를 함께 보면</div>
+          <div style="font-size:14px;color:#ccc;line-height:1.8;">성공률 85.7% + 태도 2.65점<br>→ "찾긴 했지만 경험이 나빴다"<br><br><strong style="color:#47cc88;">진짜 문제가 보인다</strong></div>
+        </div>
+      </div>
     </div>
-    <div class="quad-grid">
-      <div class="qc qc-hi-hi">
+
+    <div style="background:var(--surface);border:1px solid var(--border);padding:24px 32px;margin-bottom:16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--muted);margin-bottom:14px;">// 행동 데이터 vs 태도 데이터</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
         <div>
-          <div class="qc-tag">성공률 高 + 태도 高</div>
-          <div class="qc-title">잘 작동하는 영역</div>
-          <div class="qc-desc">사용자가 성공하고 만족했다. 유지한다.</div>
+          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">행동 데이터</div>
+          <div style="font-size:13px;color:#bbb;line-height:1.7;">사용자가 <strong style="color:var(--text);">실제로 한 것</strong><br>성공률, Misclick, Drop-off<br>거짓말하지 않는다. 다만 "왜"를 모른다.</div>
         </div>
-        <div class="qc-action">→ <strong>현상 유지</strong>. 다른 기능 개선의 기준점으로 활용.</div>
-      </div>
-      <div class="qc qc-lo-hi">
         <div>
-          <div class="qc-tag">성공률 低 + 태도 高</div>
-          <div class="qc-title">접근성 문제</div>
-          <div class="qc-desc">못 찾았지만 경험 자체는 나쁘지 않았다. 기능보다 경로 문제.</div>
+          <div style="font-size:13px;font-weight:700;color:var(--accent2);margin-bottom:6px;">태도 데이터</div>
+          <div style="font-size:13px;color:#bbb;line-height:1.7;">사용자가 <strong style="color:var(--text);">말한 것</strong><br>만족도 점수, 추천 의향, 인터뷰 발언<br>"왜"를 알려준다. 다만 기억이 틀릴 수 있다.</div>
         </div>
-        <div class="qc-action">→ <strong>탐색 경로</strong>와 정보 구조(IA) 개선 집중.</div>
       </div>
-      <div class="qc qc-hi-lo">
-        <div>
-          <div class="qc-tag">성공률 高 + 태도 低 ⚡</div>
-          <div class="qc-title">숨겨진 마찰</div>
-          <div class="qc-desc">어떻게든 해냈지만 경험이 불쾌했다. 숫자만 보면 절대 모른다.</div>
-        </div>
-        <div class="qc-action">→ <strong>정성 조사 필수.</strong> 인터뷰로 마찰 원인 파악.</div>
-      </div>
-      <div class="qc qc-lo-lo">
-        <div>
-          <div class="qc-tag">성공률 低 + 태도 低</div>
-          <div class="qc-title">명백한 문제</div>
-          <div class="qc-desc">실패했고 만족도도 낮다. 즉시 개선 필요.</div>
-        </div>
-        <div class="qc-action">→ <strong>즉시 개선.</strong> 카카오뱅크 Before M-02가 이 케이스.</div>
-      </div>
+    </div>
+
+    <div style="background:#0a0800;border:1px solid #2a2000;border-left:3px solid var(--accent2);padding:20px 28px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent2);margin-bottom:8px;">⚡ 핵심</div>
+      <div style="font-size:15px;color:#ddd;line-height:1.75;">두 데이터가 <strong style="color:var(--accent2);">불일치하는 지점</strong>이 가장 중요하다.<br>거기서 다른 방법으로는 절대 발견할 수 없는 문제가 나온다.</div>
     </div>
   </div>
 
-  <div class="slide-num">12 / 15</div>
+  <div class="slide-num">12 / 16</div>
+</div>
+
+<!-- SLIDE 12b — Correlation 4가지 패턴 -->
+<div class="slide" id="s12b" style="flex-direction:column;">
+  <div style="height:140px;padding:0 120px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:60px;flex-shrink:0;">
+    <div class="section-tag" style="color:var(--accent2);margin-bottom:0;">Method 04</div>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:72px;letter-spacing:2px;white-space:nowrap;">4가지 <em style="color:var(--accent2);font-style:normal;">조합 패턴</em> — 어떤 상황인지 파악하기</h2>
+    <p style="font-size:15px;color:#888;line-height:1.7;max-width:600px;">행동과 태도를 나란히 놓으면 4가지 패턴 중 하나가 나온다. 패턴에 따라 다음에 해야 할 일이 달라진다.</p>
+  </div>
+
+  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1px;background:var(--border);padding:1px;">
+
+    <!-- 패턴 1: 성공 高 + 태도 高 -->
+    <div style="background:#0a160a;padding:44px 56px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#47cc88;margin-bottom:12px;">패턴 01 · 성공률 高 + 태도 高</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:#47cc88;line-height:1;margin-bottom:14px;">잘 작동하는 영역</div>
+        <div style="font-size:15px;color:#bbb;line-height:1.8;margin-bottom:16px;">
+          사용자가 쉽게 성공했고, 만족도도 높다.<br>
+          이 화면은 잘 만들어진 것이다.
+        </div>
+        <div style="font-size:14px;color:#999;line-height:1.7;padding:14px 18px;background:#0d1a0d;border:1px solid #1a3a1a;">
+          다른 화면을 개선할 때 이 화면을 기준점으로 삼는다. "이 정도면 좋다"는 기준이 생기는 것이다.
+        </div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:#47cc88;letter-spacing:1px;margin-top:16px;">→ 현상 유지. 건드리지 않는다.</div>
+    </div>
+
+    <!-- 패턴 2: 성공 低 + 태도 高 -->
+    <div style="background:#0a1220;padding:44px 56px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent3);margin-bottom:12px;">패턴 02 · 성공률 低 + 태도 高</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent3);line-height:1;margin-bottom:14px;">찾는 경로가 문제</div>
+        <div style="font-size:15px;color:#bbb;line-height:1.8;margin-bottom:16px;">
+          기능을 찾지 못했지만, 경험 자체는 나쁘지 않았다.<br>
+          기능이 문제가 아니라 <strong style="color:var(--text);">어디 있는지를 모른 것</strong>이다.
+        </div>
+        <div style="font-size:14px;color:#999;line-height:1.7;padding:14px 18px;background:#0a1020;border:1px solid #1a2030;">
+          예: 맛있는 식당인데 간판이 없어서 못 찾는 것과 같다. 음식을 바꿀 게 아니라 간판을 달아야 한다. 기능 자체보다 탐색 경로와 메뉴 구조를 바꾼다.
+        </div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--accent3);letter-spacing:1px;margin-top:16px;">→ 탐색 경로와 정보 구조(IA) 개선.</div>
+    </div>
+
+    <!-- 패턴 3: 성공 高 + 태도 低 (가장 중요) -->
+    <div style="background:#1a1000;padding:44px 56px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:16px;right:20px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--accent2);background:#2a1800;border:1px solid var(--accent2);padding:4px 12px;">⚡ 가장 중요한 패턴</div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent2);margin-bottom:12px;">패턴 03 · 성공률 高 + 태도 低</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent2);line-height:1;margin-bottom:14px;">숨겨진 마찰</div>
+        <div style="font-size:15px;color:#bbb;line-height:1.8;margin-bottom:16px;">
+          어떻게든 해냈지만, 경험이 불쾌했다.<br>
+          <strong style="color:var(--accent2);">수치만 보면 절대 알 수 없다.</strong> 이것이 Correlation의 진짜 존재 이유다.
+        </div>
+        <div style="font-size:14px;color:#999;line-height:1.7;padding:14px 18px;background:#1a0e00;border:1px solid #3a2000;">
+          예: 마트에서 물건을 샀는데 계산대를 3번이나 바꿔가며 겨우 결제한 경우. 성공은 했지만 다시는 오고 싶지 않다. 수치로는 "구매 완료"지만 태도는 "최악"이다. 인터뷰나 관찰로 원인을 파야 한다.
+        </div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--accent2);letter-spacing:1px;margin-top:16px;">→ 정성 조사(인터뷰/관찰)로 원인 깊이 파기.</div>
+    </div>
+
+    <!-- 패턴 4: 성공 低 + 태도 低 -->
+    <div style="background:#160808;padding:44px 56px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#ff6060;margin-bottom:12px;">패턴 04 · 성공률 低 + 태도 低</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:#ff6060;line-height:1;margin-bottom:14px;">명백한 문제</div>
+        <div style="font-size:15px;color:#bbb;line-height:1.8;margin-bottom:16px;">
+          실패했고, 기분도 나빴다.<br>
+          가장 명확한 케이스다. 바로 고친다.
+        </div>
+        <div style="font-size:14px;color:#999;line-height:1.7;padding:14px 18px;background:#160808;border:1px solid #3a1010;">
+          이 패턴은 Correlation 없이 Metrics Matrix만으로도 발견할 수 있다. 단, 두 지표를 함께 보면 "얼마나 심각한가"를 더 명확히 판단할 수 있다. <strong style="color:#ff8080;">카카오뱅크 Before M-02</strong>가 이 케이스에 해당한다.
+        </div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:#ff6060;letter-spacing:1px;margin-top:16px;">→ 즉시 개선. 우선순위 최상단.</div>
+    </div>
+
+  </div>
+  <div class="slide-num">13 / 16</div>
 </div>
 
 <!-- SLIDE 13 — Correlation 예시 -->
